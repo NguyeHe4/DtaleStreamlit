@@ -72,8 +72,8 @@ if curr_instance2 is None:
 
 #{CSS}
 html = f"""
-<iframe src="/dtale/main/1" style="height: 100%;width: 100%"/>
-<a href="/dtale/main/1" target="_blank">Dataframe 1</a>
+<p><a href="/dtale/main/1" target="_blank">Dataframe 1</a></p>
+<iframe src="/dtale/main/1" style="height: 400%;width: 100%"/>
 """
 
 #<iframe src="/dtale/main/2" style="height: 100%;width: 100%"/>
