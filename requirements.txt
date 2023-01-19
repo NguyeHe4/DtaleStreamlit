@@ -1,2 +1,2 @@
-dtale
+dtale[streamlit]
 pandas
