@@ -1,10 +1,11 @@
-
 import dtale
 import pandas as pd
 from dtale.views import startup
 from dtale.app import get_instance
 import streamlit as st
 import requests
+from streamlit_script import *
+
 
 CSS = """
 <style>
@@ -64,7 +65,7 @@ curr_instance2 = get_instance("2")
 if curr_instance1 is None:
     summary = pd.read_excel(runsheet, sheet_name="Summary", header=[0, 1])
     # dtale.show(summary)
-    startup(data_id="1",data=summary)
+    startup(data_id="1", data=summary)
     curr_instance1 = get_instance("1")
 if curr_instance2 is None:
     sim = pd.read_excel(runsheet, sheet_name="SIM Raw", header=[0, 1])
@@ -72,15 +73,14 @@ if curr_instance2 is None:
     # dtale.show(sim)
     curr_instance2 = get_instance("2")
 
-#{CSS}
+# {CSS}
 html = f"""
 <p><a href="/dtale/main/1" target="_blank">Dataframe 1</a></p>
 <iframe src="/dtale/main/1" style="height: 400%;width: 100%"/>
 """
 
-#<iframe src="/dtale/main/2" style="height: 100%;width: 100%"/>
+# <iframe src="/dtale/main/2" style="height: 100%;width: 100%"/>
 st.write(html, unsafe_allow_html=True)
-
 
 
 # col1, col2 = st.beta_columns((1, 3))
