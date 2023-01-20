@@ -4,7 +4,7 @@ from dtale.views import startup
 from dtale.app import get_instance
 import streamlit as st
 import requests
-from streamlit_script import *
+import streamlit_script
 
 
 CSS = """
