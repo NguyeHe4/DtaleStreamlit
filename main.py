@@ -63,11 +63,13 @@ curr_instance1 = get_instance("1")
 curr_instance2 = get_instance("2")
 if curr_instance1 is None:
     summary = pd.read_excel(runsheet, sheet_name="Summary", header=[0, 1])
+    # dtale.show(summary)
     startup(data_id="1",data=summary)
     curr_instance1 = get_instance("1")
 if curr_instance2 is None:
     sim = pd.read_excel(runsheet, sheet_name="SIM Raw", header=[0, 1])
     startup(data_id="2", data=sim)
+    # dtale.show(sim)
     curr_instance2 = get_instance("2")
 
 #{CSS}
@@ -77,7 +79,8 @@ html = f"""
 """
 
 #<iframe src="/dtale/main/2" style="height: 100%;width: 100%"/>
-st.markdown(html, unsafe_allow_html=True)
+st.write(html, unsafe_allow_html=True)
+
 
 
 # col1, col2 = st.beta_columns((1, 3))
