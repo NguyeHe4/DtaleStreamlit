@@ -1,7 +1,28 @@
-import streamlit.server.server as streamlit_server
-import sys
+# import typing as T
+# from streamlit.web.server import Server
 
-from streamlit.cli import main
+# def get_streamlit_server() -> T.Optional[Server]:
+#     """
+#     Get the active streamlit server object. Must be called within a running
+#     streamlit session.
+
+#     Easy access to this object was removed in streamlit 1.12:
+#         https://github.com/streamlit/streamlit/pull/4966
+#     """
+#     # In the run() method in `streamlit/web/bootstrap.py`, a signal handler is registered
+#     # with the server as a closure. Fetch that signal handler.
+#     streamlit_signal_handler = signal.getsignal(signal.SIGQUIT)
+
+#     # Iterate through the closure variables and return the server if found.
+#     for cell in streamlit_signal_handler.__closure__:
+#         if isinstance(cell.cell_contents, Server):
+#             return cell.cell_contents
+
+#     return None
+
+from streamlit.web.cli import main
+from streamlit.web.server import Server as streamlit_server
+import sys
 from tornado.wsgi import WSGIContainer
 from tornado.web import FallbackHandler
 
