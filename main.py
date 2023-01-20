@@ -5,6 +5,8 @@ from dtale.app import get_instance
 import streamlit as st
 import requests
 import streamlit_script
+from streamlit.web import cli
+import sys
 
 
 CSS = """
@@ -82,29 +84,6 @@ html = f"""
 # <iframe src="/dtale/main/2" style="height: 100%;width: 100%"/>
 st.write(html, unsafe_allow_html=True)
 
-
-# col1, col2 = st.beta_columns((1, 3))
-# reload_columns = col1.button("Reload")
-# columns = [c for c in curr_instance1.data.columns]
-# if reload_columns:
-#     curr_instance1 = get_instance("1")
-#     columns = [c for c in curr_instance1.data.columns]
-# selected_column = col2.radio("Column Analysis", columns)
-
-# st.markdown(
-#     f'<iframe src="/dtale/popup/column-analysis/1?selectedCol={selected_column}" style="height: 100%;width: 100%"/>',
-#     unsafe_allow_html=True,
-# )
-
-# st.sidebar.title("Building Code w/ D-Tale")
-# reload_code = st.sidebar.button("Reload Code")
-# code = requests.get("http://localhost:8501/dtale/code-export/1").json()["code"]
-# if reload_code:
-#     code = requests.get("http://localhost:8501/dtale/code-export/1").json()["code"]
-# code = code.replace(
-#     PREAMBLE,
-#     "import pandas as pd\n\ndf = pd.DataFrame([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])",
-# )
-# if not code:
-#     code = "import pandas as pd\n\ndf = pd.DataFrame([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])"
-# st.sidebar.markdown(f"<pre>{code}</pre>", unsafe_allow_html=True)
+if __name__ == "__main__":
+    sys.argv = ["dtale-streamlit", "run", "main.py"]
+    sys.exit(cli.main())
