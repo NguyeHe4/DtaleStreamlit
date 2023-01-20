@@ -4,9 +4,9 @@ from dtale.views import startup
 from dtale.app import get_instance
 import streamlit as st
 import requests
-import streamlit_script
-from streamlit.web import cli
-import sys
+# import streamlit_script
+# from streamlit.web import cli
+# import sys
 
 
 CSS = """
@@ -84,6 +84,6 @@ html = f"""
 # <iframe src="/dtale/main/2" style="height: 100%;width: 100%"/>
 st.write(html, unsafe_allow_html=True)
 
-if __name__ == "__main__":
-    sys.argv = ["dtale-streamlit", "run", "main.py"]
-    sys.exit(cli.main())
+# if __name__ == "__main__":
+#     sys.argv = ["dtale-streamlit", "run", "main.py"]
+#     sys.exit(cli.main())
